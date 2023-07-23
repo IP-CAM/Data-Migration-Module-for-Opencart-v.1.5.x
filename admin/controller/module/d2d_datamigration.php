@@ -124,6 +124,7 @@ class ControllerModuleD2dDatamigration extends Controller {
                     D2dInit::PROCESS_IMPORT,
                     D2dInit::PROCESS_RESUME,
                     D2dInit::PROCESS_REFRESH,
+                    D2dInit::PROCESS_AUTH,
                     D2dInit::PROCESS_FINISH))){
                 $this->responseJson(array(
                     'status' => 'error',
@@ -327,12 +328,12 @@ class ControllerModuleD2dDatamigration extends Controller {
     /* @TODO: LIBRARY */
 
     public function getLibraryLocation(){
-        return '/library/d2d_datamigration';
+        return '/system/library/d2d_datamigration';
     }
 
     protected function getLibraryFolder(){
         $location = $this->getLibraryLocation();
-        $folder = DIR_SYSTEM . $location;
+        $folder = DIR_SYSTEM . '..' . $location;
         return $folder;
     }
 
@@ -404,6 +405,8 @@ class ControllerModuleD2dDatamigration extends Controller {
         $d2dDB = $this->db;
         $user_id = $this->session->data['user_id'];
         $library_folder = $this->getLibraryFolder();
+        $library_location = $this->getLibraryLocation();
+        $library_location = ltrim($library_location, '/');
         include_once $this->getInitLibrary();
         D2dInit::initEnv();
         $app = D2dInit::getAppInstance(D2dInit::APP_HTTP, D2dInit::TARGET_RAW, 'opencart');
@@ -411,13 +414,29 @@ class ControllerModuleD2dDatamigration extends Controller {
         $config = array();
         $config['user_id'] = $user_id;
         $config['upload_dir'] = $library_folder . '/files';
-        $config['upload_location'] = $library_folder . '/files';
+        $config['upload_location'] = $library_location . '/files';
         $config['log_dir'] = $library_folder . '/log';
         $app->setConfig($config);
+        $app->setPluginManager($this);
         $this->migrationApp = $app;
         return $this->migrationApp;
     }
 
+    public function getPlugin($name){
+        $library_folder = $this->getLibraryFolder();
+        $path = $library_folder . '/plugins/' . $name . '.php';
+        if(!file_exists($path)){
+            return false;
+        }
+        require_once $path;
+        $class_name = 'D2dDataMigrationPlugin' . $name;
+        if(!class_exists($class_name)){
+            return false;
+        }
+        $class = new $class_name();
+        return $class;
+    }
+    
     /* @TODO: UTILS */
 
     protected function getArrayValue($array, $key, $default = null){
