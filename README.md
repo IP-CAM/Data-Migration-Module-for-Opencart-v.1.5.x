@@ -2,6 +2,8 @@
 [OpenCart 1.5 Data Migration Module](https://d2d-soft.com/23-opencart-migration) is a solution for migrating data to OpenCart from another platform. The module use for OpenCart version 1.5.x. The module support migrating many entity types (taxes, manufacturers, categories, products, customers, orders, reviews) with many options. The module can work in the local environment or the online environment. The  We also provide the [Custom Migration Service](https://d2d-soft.com/migration-services/296-data-migration-customization.html) if you have a specific requirement. 
 
 ## Products
+- [AmeriCommerce to OpenCart Migration](https://d2d-soft.com/opencart-migration/774-7251-americommerce-to-opencart-migration-module.html#/72-entities-1000)
+- [Bagisto to OpenCart Migration](https://d2d-soft.com/opencart-migration/940-8959-bagisto-to-opencart-migration-module.html#/72-entities-1000)
 - [BigCommerce to OpenCart Migration](https://d2d-soft.com/opencart-migration/417-1687-bigcommerce-to-opencart-migration-module.html#/72-entities-1000)
 - [CS-Cart to OpenCart Migration](https://d2d-soft.com/opencart-migration/327-1402-cs-cart-to-opencart-migration-module.html)
 - [CubeCart to OpenCart Migration](https://d2d-soft.com/opencart-migration/56-207-cubecart-to-opencart-migration-module.html)
@@ -31,7 +33,9 @@
 - [ZenCart to OpenCart Migration](https://d2d-soft.com/opencart-migration/69-267-zencart-to-opencart-migration-module.html)
 
 ## Supported Platforms
+- [AmeriCommerce](https://www.americommerce.com/)
 - [BigCommerce](https://www.bigcommerce.com/)
+- [Bagisto](https://bagisto.com/)
 - [CS-Cart](https://www.cs-cart.com/)
 - [CubeCart](https://www.cubecart.com/)
 - [Drupal Commerce](https://drupalcommerce.org/)
