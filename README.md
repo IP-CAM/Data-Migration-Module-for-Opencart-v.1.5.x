@@ -34,8 +34,8 @@
 
 ## Supported Platforms
 - [AmeriCommerce](https://www.americommerce.com/)
-- [BigCommerce](https://www.bigcommerce.com/)
 - [Bagisto](https://bagisto.com/)
+- [BigCommerce](https://www.bigcommerce.com/)
 - [CS-Cart](https://www.cs-cart.com/)
 - [CubeCart](https://www.cubecart.com/)
 - [Drupal Commerce](https://drupalcommerce.org/)
